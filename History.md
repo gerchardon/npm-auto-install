@@ -1,4 +1,9 @@
 
+0.1.4 / 2015-08-02
+==================
+
+ * load packageJson without require (don't use cache)
+
 0.1.3 / 2015-08-02
 ==================
 
