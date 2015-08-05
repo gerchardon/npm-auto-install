@@ -67,4 +67,41 @@ describe('CheckPackage', function () {
       }catch(e){}
     });
   });
+
+  it('check good project', function(){
+    return new AutoInstall().detectMissing('test/data/project3', {install: true, force: true, uninstall: true}).then(function(data){
+      data.should.deep.equal({
+        installed: [], uninstalled: [], missing: [], unused: []
+      });
+    });
+  });
+
+  it('only install', function(){
+    fse.copySync('test/data/project1', TMP_PROJ);
+    return new AutoInstall().detectMissing(TMP_PROJ, {install: true, force: true}).then(function(data){
+      data.should.deep.equal({
+        installed: [{files:['index.js'], name: 'koa-route'}], uninstalled: [],
+        missing: [],
+        unused: ['co']
+      });
+    });
+  });
+
+  it('only uninstall', function(){
+    fse.copySync('test/data/project1', TMP_PROJ);
+    return new AutoInstall().detectMissing(TMP_PROJ, {uninstall: true, force: true}).then(function(data){
+      data.should.deep.equal({
+        installed: [], uninstalled: ['co'],
+        missing: [{files:['index.js'], name: 'koa-route'}],
+        unused: []
+      });
+    });
+  });
+
+  it('no uninstall', function(){
+    fse.copySync('test/data/projectMissing', TMP_PROJ);
+    return new AutoInstall().detectMissing(TMP_PROJ, {install: true, uninstall: true, force: true}).then(function(data){
+      data.uninstalled.should.deep.equal([]);
+    });
+  })
 });

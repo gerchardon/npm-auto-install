@@ -4,9 +4,7 @@
   "description": "Fake project for test",
   "private": true,
   "dependencies": {
-    "co": "^4.6.0"
-  },
-  "devDependencies": {
+    "co": "^4.6.0",
     "koa": "^0.21.0"
   }
 }

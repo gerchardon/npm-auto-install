@@ -4,9 +4,9 @@
   "description": "Fake project for test",
   "private": true,
   "dependencies": {
-    "co": "^4.6.0"
+    "colors": "*"
   },
   "devDependencies": {
-    "koa": "^0.21.0"
+    "mocha": "*"
   }
 }
