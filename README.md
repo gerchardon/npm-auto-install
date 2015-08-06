@@ -27,6 +27,18 @@ Or with auto install uninstall :
 nai -iu
 ```
 
+Or with gulp watch :
+```
+var gulp = require('gulp');
+var AutoInstall = require('npm-auto-install');
+gulp.task('nai', function(){
+  return new AutoInstall().detectMissing(process.cwd(),{install: true, force:true, uninstall: true});
+});
+
+gulp.task('watch', function(){
+  gulp.watch(['./**/*.js', '!./node_modules/**'], ['nai']);
+});
+```
 
 # Contrib
 
