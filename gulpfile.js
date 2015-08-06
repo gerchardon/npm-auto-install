@@ -11,6 +11,5 @@ gulp.task('test', function(){
 
 gulp.task('watch', function(){
   gulp.start('test');
-  // TODO: Negeate test/data/tmp/
-  gulp.watch('**/*.js', ['test']);
+  gulp.watch(['./**/*.js', '!./test/data/tmp/**'], ['test']);
 });
