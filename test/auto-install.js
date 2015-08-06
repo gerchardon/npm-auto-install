@@ -20,7 +20,6 @@ function disableLog(){
 function enableLog(){
   console.log = oldConsoleLog;
 }
-console.log = function(){};
 
 beforeEach(function() {
   disableLog();

@@ -4,7 +4,7 @@ var mocha = require('gulp-mocha');
 gulp.task('default', ['test']);
 
 gulp.task('test', function(){
-  var reporter = 'dot'; // nyan
+  var reporter = 'spec';
   return gulp.src('test/*.js', {read: false})
     .pipe(mocha({reporter: reporter, growl: true}));
 });
