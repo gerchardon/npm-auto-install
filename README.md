@@ -1,6 +1,8 @@
 [![npm version](https://img.shields.io/npm/v/npm-auto-install.svg)](https://npmjs.org/package/npm-auto-install)
 [![Dependency Status](https://david-dm.org/gerchardon/npm-auto-install.svg)](https://david-dm.org/gerchardon/npm-auto-install)
 [![devDependency Status](https://david-dm.org/gerchardon/npm-auto-install/dev-status.svg)](https://david-dm.org/gerchardon/npm-auto-install#info=devDependencies)
+[![Build Status](https://travis-ci.org/gerchardon/npm-auto-install.svg?branch=master)](https://travis-ci.org/gerchardon/npm-auto-install)
+[![Coverage Status](https://coveralls.io/repos/gerchardon/npm-auto-install/badge.svg?branch=master&service=github)](https://coveralls.io/github/gerchardon/npm-auto-install?branch=master)
 
 
 # Usage
