@@ -5,7 +5,7 @@ gulp.task('default', ['test']);
 
 gulp.task('test', function(){
   var reporter = 'dot'; // nyan
-  return gulp.src('*/*.js', {read: false})
+  return gulp.src('test/*.js', {read: false})
     .pipe(mocha({reporter: reporter, growl: true}));
 });
 
