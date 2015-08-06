@@ -5,6 +5,8 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "gulp test",
+    "coverage": "gulp coverage",
+    "coveralls": "gulp coveralls",
     "watch": "gulp watch"
   },
   "keywords": [
@@ -33,6 +35,8 @@
     "chai-as-promised": "^5.1.0",
     "fs-extra": "^0.22.1",
     "gulp": "^3.9.0",
+    "gulp-coveralls": "^0.1.4",
+    "gulp-istanbul": "^0.10.0",
     "gulp-mocha": "^2.1.3",
     "mocha": "^2.2.5"
   }
