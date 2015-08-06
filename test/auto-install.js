@@ -36,7 +36,7 @@ describe('CheckPackage', function () {
   it('detectMissing', function() {
     var expected = {
       installed: [], uninstalled: [],
-      missing: [{files:['index.js'], name: 'koa-route'}],
+      missing: [{files:['index.js'], name: 'colors'}],
       unused: ['co']
     };
     return new AutoInstall().detectMissing("test/data/project1/").then(function(data) {
@@ -54,12 +54,12 @@ describe('CheckPackage', function () {
     fse.copySync('test/data/templateProject2', TMP_PROJ);
     return new AutoInstall().detectMissing(TMP_PROJ, {install: true, force: true, uninstall: true}).then(function(data){
       data.should.deep.equal({
-        installed: [{name: 'koa-route', files: ['index.js']}],
+        installed: [{name: 'colors', files: ['index.js']}],
         uninstalled: ['co'],
         missing: [],
         unused: []
       });
-      fs.statSync(path.join(TMP_PROJ, 'node_modules', 'koa-route'));
+      fs.statSync(path.join(TMP_PROJ, 'node_modules', 'colors'));
       try{
         fs.statSync(path.join(TMP_PROJ, 'node_modules', 'co'));
         throw new Error('co not uninstalled');
@@ -79,7 +79,7 @@ describe('CheckPackage', function () {
     fse.copySync('test/data/project1', TMP_PROJ);
     return new AutoInstall().detectMissing(TMP_PROJ, {install: true, force: true}).then(function(data){
       data.should.deep.equal({
-        installed: [{files:['index.js'], name: 'koa-route'}], uninstalled: [],
+        installed: [{files:['index.js'], name: 'colors'}], uninstalled: [],
         missing: [],
         unused: ['co']
       });
@@ -91,7 +91,7 @@ describe('CheckPackage', function () {
     return new AutoInstall().detectMissing(TMP_PROJ, {uninstall: true, force: true}).then(function(data){
       data.should.deep.equal({
         installed: [], uninstalled: ['co'],
-        missing: [{files:['index.js'], name: 'koa-route'}],
+        missing: [{files:['index.js'], name: 'colors'}],
         unused: []
       });
     });
@@ -102,5 +102,5 @@ describe('CheckPackage', function () {
     return new AutoInstall().detectMissing(TMP_PROJ, {install: true, uninstall: true, force: true}).then(function(data){
       data.uninstalled.should.deep.equal([]);
     });
-  })
+  });
 });

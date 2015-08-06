@@ -4,7 +4,7 @@ var koa = require('koa');
 
 function start() {
   // Detect require in function
-  var route = require('koa-route');
+  var colors = require('colors');
   // Test for uniq
   var koa = require('koa');
 }
