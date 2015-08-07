@@ -1,4 +1,14 @@
 
+0.1.5 / 2015-08-07
+==================
+
+ * Add travis ci and coveralls badge
+ * Add travis ci
+ * Cover with istanbul
+ * README : gulp sample
+ * Rename npc to nai
+ * Clean code
+
 0.1.4 / 2015-08-02
 ==================
 
