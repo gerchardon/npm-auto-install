@@ -13,7 +13,8 @@ program
   .option('-v, --verbose', 'Verbose mode')
   .option('-i, --install', 'Install missing package')
   .option('-u, --uninstall', 'Uninstall unused package')
-  .option('-f, --force', 'Force to install or uninstall');
+  .option('-f, --force', 'Force to install or uninstall')
+  .option('--ignore <glob>', 'Ignore a directory');
 
 program
   .parse(process.argv);
@@ -28,6 +29,9 @@ if(program.uninstall) {
 }
 if(program.force) {
   options.force = true;
+}
+if(program.ignore) {
+  options.ignore = program.ignore.split(' ');
 }
 
 new AutoInstall().detectMissing(process.cwd(), options).then(function(errors){
