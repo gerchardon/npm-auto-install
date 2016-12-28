@@ -103,4 +103,27 @@ describe('CheckPackage', function () {
       data.uninstalled.should.deep.equal([]);
     });
   });
+
+  it('ignore file string', function(){
+    fse.copySync('test/data/projectIgnore', TMP_PROJ);
+    return new AutoInstall().detectMissing(TMP_PROJ, {ignore: 'ignore?/*'}).then(function(data){
+      data.should.deep.equal({
+          installed: [], uninstalled: [],
+          missing: [{files:['index.js'], name: 'colors'}],
+          unused: ['koa']
+      });
+    });
+  });
+
+  it('ignore file array', function(){
+    fse.copySync('test/data/projectIgnore', TMP_PROJ);
+    return new AutoInstall().detectMissing(TMP_PROJ, {ignore: ['ignore1/*', 'ignore2/*']}).then(function(data){
+      data.should.deep.equal({
+          installed: [], uninstalled: [],
+          missing: [{files:['index.js'], name: 'colors'}],
+          unused: ['koa']
+      });
+    });
+  });
+
 });
