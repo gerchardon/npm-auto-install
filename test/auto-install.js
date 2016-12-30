@@ -22,6 +22,7 @@ function enableLog(){
 }
 
 beforeEach(function() {
+  this.timeout(5000);
   disableLog();
   try{
     fse.removeSync(TMP_PROJ);
@@ -51,6 +52,7 @@ describe('CheckPackage', function () {
   });
 
   it('install and uninstall', function(){
+    this.timeout(5000);
     fse.copySync('test/data/templateProject2', TMP_PROJ);
     return new AutoInstall().detectMissing(TMP_PROJ, {install: true, force: true, uninstall: true}).then(function(data){
       data.should.deep.equal({
