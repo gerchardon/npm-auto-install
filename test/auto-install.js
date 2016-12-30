@@ -126,4 +126,15 @@ describe('CheckPackage', function () {
     });
   });
 
+  it('folders end with js', function(){
+    fse.copySync('test/data/projectJsFolder', TMP_PROJ);
+    return new AutoInstall().detectMissing(TMP_PROJ).then(function(data){
+      data.should.deep.equal({
+        installed: [], uninstalled: [],
+        missing: [{files:['folder.js/index.js'], name: 'mocha'}],
+        unused: ['koa']
+      });
+    });
+  });
+
 });
